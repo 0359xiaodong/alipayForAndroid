@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:id="@+id/top"
+            android:layout_width="match_parent"
+            android:layout_height="95dp"
+            android:background="@drawable/bg1"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="101dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="23dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/alipay_logo" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/footer"
+            android:background="#f3f3f3"
+            android:layout_below="@+id/top"
+            android:orientation="vertical" >
+
+            <GridView
+                android:id="@+id/grid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg2"
+                android:columnWidth="80dp"
+                android:gravity="center_vertical|center_horizontal"
+                android:horizontalSpacing="20dp"
+                android:numColumns="4"
+                android:padding="17dp"
+                android:stretchMode="columnWidth"
+                android:verticalSpacing="13dp" >
+            </GridView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/footer"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:background="#27b" >
+
+            <Button
+                android:id="@+id/register"
+                android:background="@drawable/footer_first_btn_style"
+                style="@style/footerButton"
+                android:text="@string/register" />
+
+            <Button
+                android:id="@+id/login"
+                style="@style/footerButton"
+                android:text="@string/login" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

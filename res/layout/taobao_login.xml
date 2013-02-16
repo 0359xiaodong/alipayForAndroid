@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:id="@+id/top"
+            style="@style/loginTypeHeader" >
+
+            <ImageView
+                android:layout_width="93dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/taobao_blue_logo" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/footer"
+            android:layout_below="@+id/top"
+            android:background="#f3f3f3"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/containerPaddingL"
+            android:paddingRight="@dimen/containerPaddingR"
+            android:paddingTop="@dimen/containerPaddingT" >
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <EditText
+                        style="@style/inputText"
+                        android:hint="@string/useTaobaoLoginAccountNameTip" />
+
+                    <EditText
+                        style="@style/inputText"
+                        android:hint="@string/useTaobaoLoginPasswordTip" />
+
+                    <Button
+                        style="@style/ok_btn"
+                        android:id="@+id/submitLogin"
+                        android:layout_marginBottom="13dp"
+                        android:text="@string/login" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
+
+                        <CheckBox
+                            style="@style/checkbox" />
+
+                        <TextView
+                            style="@style/text1"
+                            android:text="@string/rememberLoginPassword" />
+
+                        <TextView
+                            style="@style/link"
+                            android:text="@string/forgotPassword" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/footer"
+            android:layout_width="match_parent"
+            android:layout_height="61dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/layout_1"
+            android:orientation="vertical"
+            android:paddingTop="1dp" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="61dp"
+                android:background="@drawable/layout_1_inside"
+                android:orientation="vertical"
+                android:paddingBottom="9dp"
+                android:paddingLeft="@dimen/containerPaddingL"
+                android:paddingRight="@dimen/containerPaddingR"
+                android:paddingTop="9dp" >
+
+                <Button
+                    android:id="@+id/useAlipayLogin"
+                    style="@style/blue_btn_style"
+                    android:text="@string/useAlipayLogin" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

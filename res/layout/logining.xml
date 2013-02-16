@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:id="@+id/top"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:background="#27b" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:text="颂赞"
+                android:textColor="#fff"
+                android:textSize="21sp" />
+
+            <ImageButton
+                android:layout_width="66dp"
+                android:layout_height="26dp"
+                android:layout_gravity="center"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
+                android:background="@drawable/ring_background"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ring_default" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/userInfo"
+            android:layout_width="match_parent"
+            android:layout_height="95dp"
+            android:padding="10dp"
+            android:background="@drawable/bg1"
+            android:layout_below="@+id/top" >
+
+            <ImageView
+                android:id="@+id/avatar"
+                style="@style/avatar"
+                android:src="@drawable/lfc_avatar" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="9dp"
+                android:layout_marginRight="9dp"
+                android:layout_gravity="top"
+                android:gravity="left"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:background="@drawable/textview_dash_style"
+                    android:text="qi.zhuq@alipay.com" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="5200.00"
+                    android:textColor="#f70"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="11sp"
+                    android:textColor="#999"
+                    android:text="@string/kyye" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:gravity="center" >
+
+                <ImageButton
+                style="@style/arrow_right" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/remind"
+            android:layout_below="@+id/userInfo"
+            android:orientation="vertical" >
+
+            <GridView
+                android:id="@+id/grid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg2"
+                android:columnWidth="80dp"
+                android:gravity="center_vertical|center_horizontal"
+                android:horizontalSpacing="20dp"
+                android:numColumns="4"
+                android:padding="17dp"
+                android:stretchMode="columnWidth"
+                android:verticalSpacing="13dp" >
+            </GridView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/remind"
+            android:layout_width="match_parent"
+            android:layout_height="51dp"
+            android:layout_above="@+id/footer"
+            android:background="@drawable/home_remind"
+            android:padding="15dp" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/clock_default" />
+
+            <TextView 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="7dp"
+                android:layout_marginRight="7dp"
+                android:text="您有2笔待付款交易。" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginRight="9dp"
+                android:background="@drawable/orange_round_bg" >
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textColor="#fff"
+                    android:shadowColor="#000"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1"
+                    android:text="2" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/arrow_right_default" />
+            
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/footer"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:background="#27b"
+            android:layout_height="50dp" >
+
+            <LinearLayout
+                android:id="@+id/homeIconLayer"
+                style="@style/footerTab" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:background="@drawable/footer_tab_btn_border" >
+
+                    <Button
+                        android:id="@+id/homeIcon"
+                        style="@style/footerTabButton"
+                        android:background="@drawable/footer_tab_icon_home" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+            
+            <LinearLayout
+                android:id="@+id/tradeIconLayer"
+                style="@style/footerTab" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:background="@drawable/footer_tab_btn_border" >
+
+                    <Button
+                        android:id="@+id/tradeIcon"
+                        style="@style/footerTabButton"
+                        android:background="@drawable/footer_tab_icon_trade" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+            
+            <LinearLayout
+                android:id="@+id/moneyIconLayer"
+                style="@style/footerTab" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:background="@drawable/footer_tab_btn_border" >
+
+                    <Button
+                        android:id="@+id/moneyIcon"
+                        style="@style/footerTabButton"
+                        android:background="@drawable/footer_tab_icon_money" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+            
+            <LinearLayout
+                android:id="@+id/moreIconLayer"
+                style="@style/footerTab" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center" >
+
+                    <Button
+                        android:id="@+id/moreIcon"
+                        style="@style/footerTabButton"
+                        android:background="@drawable/footer_tab_icon_more" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

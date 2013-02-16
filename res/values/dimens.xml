@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="gridAppTextSize">11sp</dimen>
+    <dimen name="footerBtnTextSize">18sp</dimen>
+    
+    <dimen name="containerPaddingL">17dp</dimen>
+    <dimen name="containerPaddingR">17dp</dimen>
+    <dimen name="containerPaddingT">27dp</dimen>
+    <dimen name="containerPaddingB">27dp</dimen>
+</resources>
