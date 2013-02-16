@@ -99,6 +99,9 @@ public class Logining extends Activity {
 				switch(e.getAction()){
 				case MotionEvent.ACTION_DOWN:
 					tradeIcon.setBackgroundResource(R.drawable.icon_trade_selected);
+					Intent intent = new Intent();
+					intent.setClass(Logining.this, TradeList.class);
+					startActivity(intent);
 					break;
 				case MotionEvent.ACTION_UP:
 					tradeIcon.setBackgroundResource(R.drawable.icon_trade_default);

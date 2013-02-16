@@ -56,6 +56,11 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
+        <activity
+            android:name="com.alipay.TradeList"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
     </application>
 
 </manifest>

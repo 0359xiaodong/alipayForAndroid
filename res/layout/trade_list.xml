@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <RelativeLayout
+            android:id="@+id/top"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:background="#27b" >
+
+            <ImageButton
+                android:id="@+id/right"
+                android:layout_width="66dp"
+                android:layout_height="26dp"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/ring_background"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/icon_trade_selected" />
+
+            <LinearLayout
+                android:id="@+id/left"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/qbsz"
+                    android:textColor="#fff"
+                    android:textSize="21sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="9dp"
+                    android:src="@drawable/arrow_bottom" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <ScrollView
+            android:id="@+id/dataList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/top"
+            android:background="#f6f6f6" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="match_parent" >
+
+                <TableLayout
+                    style="@style/dataList_list"
+                    android:layout_width="match_parent" >
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+
+                        <TextView
+                            android:id="@+id/TextView22"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" 
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:lineSpacingExtra="7dp"
+                            android:shadowColor="#fff"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1"
+                            android:text="在线交易"
+                            android:textColor="#666"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/TextView21"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:shadowColor="#fff"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1"
+                            android:text="-1500.00元"
+                            android:textColor="#f70"
+                            android:textSize="12sp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/TableRow06"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+
+                        <TextView
+                            android:id="@+id/TextView24"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:shadowColor="#fff"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1"
+                            android:text="2012.03.18"
+                            android:textColor="#999"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/TextView23"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:shadowColor="#fff"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1"
+                            android:text="余额：390.00元"
+                            android:textColor="#999"
+                            android:textSize="12sp" />
+                    </TableRow>
+                </TableLayout>
+
+                <TableLayout
+                    style="@style/dataList_list"
+                    android:layout_width="match_parent" >
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+
+                        <TextView
+                            android:id="@+id/TextView18"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:lineSpacingExtra="7dp"
+                            android:shadowColor="#fff"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1"
+                            android:text="在线交易"
+                            android:textColor="#666"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/TextView17"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:shadowColor="#fff"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1"
+                            android:text="-1500.00元"
+                            android:textColor="#f70"
+                            android:textSize="12sp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/TableRow05"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+
+                        <TextView
+                            android:id="@+id/TextView20"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:shadowColor="#fff"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1"
+                            android:text="2012.03.18"
+                            android:textColor="#999"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/TextView19"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:shadowColor="#fff"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1"
+                            android:text="余额：390.00元"
+                            android:textColor="#999"
+                            android:textSize="12sp" />
+                    </TableRow>
+                </TableLayout>
+
+                <TableLayout
+                    style="@style/dataList_list"
+                    android:layout_width="match_parent" >
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+
+                        <TextView
+                            android:id="@+id/TextView14"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:lineSpacingExtra="7dp"
+                            android:shadowColor="#fff"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1"
+                            android:text="在线交易"
+                            android:textColor="#666"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/TextView13"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:shadowColor="#fff"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1"
+                            android:text="-1500.00元"
+                            android:textColor="#f70"
+                            android:textSize="12sp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/TableRow04"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+
+                        <TextView
+                            android:id="@+id/TextView16"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:shadowColor="#fff"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1"
+                            android:text="2012.03.18"
+                            android:textColor="#999"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/TextView15"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:shadowColor="#fff"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1"
+                            android:text="余额：390.00元"
+                            android:textColor="#999"
+                            android:textSize="12sp" />
+                    </TableRow>
+                </TableLayout>
+
+                <TableLayout
+                    style="@style/dataList_list"
+                    android:layout_width="match_parent" >
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+
+                        <TextView
+                            android:id="@+id/TextView10"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:lineSpacingExtra="7dp"
+                            android:shadowColor="#fff"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1"
+                            android:text="在线交易"
+                            android:textColor="#666"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/TextView09"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:shadowColor="#fff"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1"
+                            android:text="-1500.00元"
+                            android:textColor="#f70"
+                            android:textSize="12sp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/TableRow03"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+
+                        <TextView
+                            android:id="@+id/TextView12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:shadowColor="#fff"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1"
+                            android:text="2012.03.18"
+                            android:textColor="#999"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/TextView11"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:shadowColor="#fff"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1"
+                            android:text="余额：390.00元"
+                            android:textColor="#999"
+                            android:textSize="12sp" />
+                    </TableRow>
+                </TableLayout>
+
+                <TableLayout
+                    style="@style/dataList_list"
+                    android:layout_width="match_parent" >
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+
+                        <TextView
+                            android:id="@+id/TextView06"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:lineSpacingExtra="7dp"
+                            android:shadowColor="#fff"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1"
+                            android:text="在线交易"
+                            android:textColor="#666"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/TextView05"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:shadowColor="#fff"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1"
+                            android:text="-1500.00元"
+                            android:textColor="#f70"
+                            android:textSize="12sp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/TableRow02"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+
+                        <TextView
+                            android:id="@+id/TextView08"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:shadowColor="#fff"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1"
+                            android:text="2012.03.18"
+                            android:textColor="#999"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/TextView07"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:shadowColor="#fff"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1"
+                            android:text="余额：390.00元"
+                            android:textColor="#999"
+                            android:textSize="12sp" />
+                    </TableRow>
+                </TableLayout>
+
+                <TableLayout
+                    style="@style/dataList_list" >
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+
+                        <TextView
+                            android:id="@+id/TextView02"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:lineSpacingExtra="7dp"
+                            android:shadowColor="#fff"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1"
+                            android:text="在线交易"
+                            android:textColor="#666"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/TextView01"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:shadowColor="#fff"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1"
+                            android:text="-1500.00元"
+                            android:textColor="#f70"
+                            android:textSize="12sp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/TableRow01"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+
+                        <TextView
+                            android:id="@+id/TextView04"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:shadowColor="#fff"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1"
+                            android:text="2012.03.18"
+                            android:textColor="#999"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/TextView03"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:shadowColor="#fff"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1"
+                            android:text="余额：390.00元"
+                            android:textColor="#999"
+                            android:textSize="12sp" />
+                    </TableRow>
+                </TableLayout>
+
+                <TableLayout style="@style/dataList_list" >
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+
+                        <TextView
+                            android:id="@+id/textView1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:lineSpacingExtra="7dp"
+                            android:shadowColor="#fff"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1"
+                            android:text="在线交易"
+                            android:textColor="#666"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/textView2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:shadowColor="#fff"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1"
+                            android:text="-1500.00元"
+                            android:textColor="#f70"
+                            android:textSize="12sp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/tableRow1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:shadowColor="#fff"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1"
+                            android:text="2012.03.18"
+                            android:textColor="#999"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/textView4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:shadowColor="#fff"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1"
+                            android:text="余额：390.00元"
+                            android:textColor="#999"
+                            android:textSize="12sp" />
+                    </TableRow>
+                </TableLayout>
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+</LinearLayout>
