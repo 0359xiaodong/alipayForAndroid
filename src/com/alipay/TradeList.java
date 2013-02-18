@@ -39,7 +39,8 @@ public class TradeList extends Activity implements OnScrollListener{
 	private static final String TAG = "Alipay";
 	private ListView listView;
 	private int lastIndex = 0;
-	private int dataSize = 64;
+	private int dataSize = 22;
+	private int perCount = 10;
 	private int itemCount;
 	private PaginationAdapter adapter;
 	private View loadMoreView;
@@ -76,7 +77,7 @@ public class TradeList extends Activity implements OnScrollListener{
 	
 	private void initializeAdapter(){
 		List<Trades> trades = new ArrayList<Trades>();
-		for(int i=0; i<100; i++){
+		for(int i=0; i<perCount; i++){
 			Trades trade = new Trades();
 			trade.setName("商品名称"+i);
 			trade.setDate("交易日期"+i);
@@ -87,20 +88,58 @@ public class TradeList extends Activity implements OnScrollListener{
 		adapter = new PaginationAdapter(trades);
 	}
 	
+	private void noData(){
+		loadMoreButton.setOnClickListener(null);
+		Toast.makeText(TradeList.this, "数据全部加载", Toast.LENGTH_SHORT).show();
+	}
+	
 	private void loadMoreData(){
 		int count = adapter.getCount();
+		if(count == dataSize){
+			noData();
+		}else{
+			if(count+perCount <= dataSize){
+				for(int i=count; i<count+perCount; i++){
+					Trades trade = new Trades();
+					trade.setName("商品名称"+i);
+					trade.setDate("交易日期"+i);
+					trade.setMoney(i+"元");
+					trade.setStatus("交易状态"+i);
+					adapter.addNewItem(trade);
+				}
+			}else{
+				for(int i=count; i<dataSize; i++){
+					Trades trade = new Trades();
+					trade.setName("商品名称"+i);
+					trade.setDate("交易日期"+i);
+					trade.setMoney(i+"元");
+					trade.setStatus("交易状态"+i);
+					adapter.addNewItem(trade);
+				}
+			}
+		}
 	}
 
 	@Override
-	public void onScroll(AbsListView arg0, int arg1, int arg2, int arg3) {
-		// TODO Auto-generated method stub
+	public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+		Log.d("========================= ","========================"); 
+		Log.d(TAG,"第一条显示的数据是: "+firstVisibleItem);
+		Log.d(TAG,"共显示 "+visibleItemCount+" 条数据");
+		Log.d(TAG,"总共有 "+totalItemCount+" 条数据");
 		
+		if(totalItemCount == dataSize+1){
+			noData();
+		}
 	}
 
 	@Override
-	public void onScrollStateChanged(AbsListView arg0, int arg1) {
-		// TODO Auto-generated method stub
-		
+	public void onScrollStateChanged(AbsListView view, int scrollState) {
+		if(scrollState == OnScrollListener.SCROLL_STATE_IDLE 
+				&& adapter.getCount()-1 != dataSize
+				){
+			Log.d(TAG,""+scrollState);
+			//loadMoreData();
+		}
 	}
 	
 	public class PaginationAdapter extends BaseAdapter{
@@ -144,5 +183,8 @@ public class TradeList extends Activity implements OnScrollListener{
 			return view;
 		}
 		
+		private void addNewItem(Trades trade){
+			trades.add(trade);
+		}
 	}
 }
