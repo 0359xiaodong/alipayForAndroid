@@ -20,6 +20,7 @@ import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -27,6 +28,7 @@ import android.content.Intent;
 public class UnLogin extends Activity {
 	private static final String TAG = "Alipay";
 	private Menu myMenu;
+	private AlipayDialog ad;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -76,10 +78,31 @@ public class UnLogin extends Activity {
 			startActivity(intent);
 			break;
 		case 2:
-			this.finish();
+			this.exit();
 			break;
 		}
 		return true;
+	}
+	
+	private void exit(){
+		if(ad == null){
+			ad = new AlipayDialog(UnLogin.this);
+			ad.setOkBtn("确定", new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					UnLogin.this.finish();
+				}
+			});
+			ad.setCancelBtn("取消", new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					Toast.makeText(UnLogin.this, "您点击了取消", Toast.LENGTH_SHORT).show();
+				}
+			});
+		}else{
+			ad.show();
+		}
+		ad.setMessage("您是否要退出支付宝客户端？");
 	}
 	
 	private void bindUI(){

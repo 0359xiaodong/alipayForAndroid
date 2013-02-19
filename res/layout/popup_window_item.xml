@@ -12,7 +12,7 @@
             android:id="@+id/item"
             android:layout_width="match_parent"
             android:layout_height="47dp"
-            android:background="@drawable/box_arrow_top_bg"
+            
             android:gravity="center"
             android:text="全部收支"
             android:textColor="#666"

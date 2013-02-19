@@ -14,6 +14,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AbsListView;
@@ -211,7 +212,7 @@ public class TradeList extends Activity implements OnScrollListener{
 		WindowManager window = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
 		windowWidth = window.getDefaultDisplay().getWidth();
 		popupWindowWidth = windowWidth/2;
-		popupWindowHeight = 208;
+		popupWindowHeight = 156;
 		xPos = (windowWidth-popupWindowWidth)/2;
 		
 		if(popupWindow == null){
@@ -219,9 +220,11 @@ public class TradeList extends Activity implements OnScrollListener{
 			menus = (ListView) view.findViewById(R.id.menus);
 			groups.add("全部收支");
 			groups.add("近一周");
+			groups.add("近一个月");
 			GroupAdapter adapter = new GroupAdapter(this, groups);
 			menus.setAdapter(adapter);
 			popupWindow = new PopupWindow(view, popupWindowWidth,popupWindowHeight);
+			popupWindow.setHeight(LayoutParams.WRAP_CONTENT);
 		}
 		popupWindow.setFocusable(true);
 		popupWindow.setOutsideTouchable(true);
