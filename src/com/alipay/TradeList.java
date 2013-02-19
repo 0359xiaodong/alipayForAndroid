@@ -19,6 +19,7 @@ import android.view.WindowManager;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
@@ -27,6 +28,7 @@ import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.PopupWindow;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -34,6 +36,7 @@ import android.widget.Toast;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.BitmapDrawable;
 
 public class TradeList extends Activity implements OnScrollListener{
 	private static final String TAG = "Alipay";
@@ -46,6 +49,7 @@ public class TradeList extends Activity implements OnScrollListener{
 	private View loadMoreView;
 	private Button loadMoreButton;
 	private Handler handler = new Handler();
+	private PopupWindow popupWindow = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +77,14 @@ public class TradeList extends Activity implements OnScrollListener{
 		listView.setAdapter(adapter);
 		listView.setOnScrollListener(this);
 		loadMoreButton.setOnClickListener(listener);
+		
+		LinearLayout topBar = (LinearLayout) findViewById(R.id.left);
+		topBar.setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View v) {
+				showPopupWindow(v);
+			}
+		});
 	}
 	
 	private void initializeAdapter(){
@@ -186,5 +198,89 @@ public class TradeList extends Activity implements OnScrollListener{
 		private void addNewItem(Trades trade){
 			trades.add(trade);
 		}
+	}
+	
+	private void showPopupWindow(View v){
+		ListView menus = null;
+		int windowWidth;
+		int popupWindowWidth;
+		int popupWindowHeight;
+		int xPos = 0;
+		final List<String> groups = new ArrayList<String>();
+		
+		WindowManager window = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
+		windowWidth = window.getDefaultDisplay().getWidth();
+		popupWindowWidth = windowWidth/2;
+		popupWindowHeight = 208;
+		xPos = (windowWidth-popupWindowWidth)/2;
+		
+		if(popupWindow == null){
+			View view = getLayoutInflater().inflate(R.layout.box_arrow_top, null);
+			menus = (ListView) view.findViewById(R.id.menus);
+			groups.add("全部收支");
+			groups.add("近一周");
+			GroupAdapter adapter = new GroupAdapter(this, groups);
+			menus.setAdapter(adapter);
+			popupWindow = new PopupWindow(view, popupWindowWidth,popupWindowHeight);
+		}
+		popupWindow.setFocusable(true);
+		popupWindow.setOutsideTouchable(true);
+		popupWindow.setBackgroundDrawable(new BitmapDrawable());
+		popupWindow.showAsDropDown(v, xPos, 0);
+		if(menus != null){
+		  menus.setOnItemClickListener(new OnItemClickListener(){
+			@Override
+			public void onItemClick(AdapterView<?> adapterView, View view,
+					int position, long id) {
+				Toast.makeText(TradeList.this, groups.get(position), Toast.LENGTH_SHORT).show();
+				if(popupWindow != null){
+					popupWindow.dismiss();
+				}
+			}});
+		}
+	}
+	
+	public class GroupAdapter extends BaseAdapter{
+		private Context context;
+		private List<String> list;
+		
+		public GroupAdapter(Context c, List<String> list){
+			this.context = c;
+			this.list = list;
+		}
+
+		@Override
+		public int getCount() {
+			return this.list.size();
+		}
+
+		@Override
+		public Object getItem(int position) {
+			return this.list.get(position);
+		}
+
+		@Override
+		public long getItemId(int id) {
+			return id;
+		}
+
+		@Override
+		public View getView(int position, View view, ViewGroup parent) {
+			ViewHolder holder;
+			if(view == null){
+				view = getLayoutInflater().inflate(R.layout.popup_window_item, null);
+				holder = new ViewHolder();
+				view.setTag(holder);
+				holder.groupItem = (TextView) view.findViewById(R.id.item);
+			}else{
+				holder = (ViewHolder) view.getTag();
+			}
+			holder.groupItem.setText(this.list.get(position));
+			return view;
+		}
+	}
+	
+	static class ViewHolder{
+		TextView groupItem;
 	}
 }
