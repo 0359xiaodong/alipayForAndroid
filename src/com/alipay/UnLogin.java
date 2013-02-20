@@ -96,6 +96,7 @@ public class UnLogin extends Activity {
 			ad.setCancelBtn("取消", new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
+					ad.dismiss();
 					Toast.makeText(UnLogin.this, "您点击了取消", Toast.LENGTH_SHORT).show();
 				}
 			});

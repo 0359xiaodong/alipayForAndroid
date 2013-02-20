@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:background="@drawable/dialog_bg"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/top"
+            android:layout_width="match_parent"
+            android:layout_height="132dp"
+            android:padding="11dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="#27b"
+                android:gravity="center"
+                android:layout_marginBottom="15dp"
+                android:layout_gravity="center"
+                android:text="提示" />
+
+            <LinearLayout
+                android:paddingTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/confirm_dialog_content_box_bg"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/data" 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="#666"
+                    android:text="TextView" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+        
+        <LinearLayout
+            android:id="@+id/bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="1dp" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                 >
+
+                <Button
+                    android:id="@+id/ok"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="47dp" 
+                    android:background="@drawable/confirm_dialog"
+                    android:textColor="@color/confirm_dialog_btn_textcolor"
+                    android:text="确定" />
+
+                <Button
+                    android:id="@+id/cancel"
+                    android:layout_weight="1"
+                    android:background="@drawable/confirm_r_dialog"
+                    android:textColor="@color/confirm_dialog_btn_textcolor"
+                    android:layout_width="match_parent"
+                    android:layout_height="47dp"
+                    android:text="取消" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
