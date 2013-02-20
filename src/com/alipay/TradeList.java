@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.RotateAnimation;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.AdapterView;
@@ -27,6 +28,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
@@ -51,6 +53,10 @@ public class TradeList extends Activity implements OnScrollListener{
 	private Button loadMoreButton;
 	private Handler handler = new Handler();
 	private PopupWindow popupWindow = null;
+	
+	private float arrowRotateXAngle = 180;
+	private float arrowRotateStartAngle = 0;
+	private float temRotate = 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -201,6 +207,20 @@ public class TradeList extends Activity implements OnScrollListener{
 		}
 	}
 	
+	private void rotateArrow(){
+		ImageView arrow = (ImageView) findViewById(R.id.arrow);
+		float x = arrow.getPivotX();
+		float y = arrow.getPivotY();
+		RotateAnimation anim = new RotateAnimation(arrowRotateStartAngle, arrowRotateXAngle, arrow.getWidth()/2, arrow.getHeight()/2);
+		anim.setFillAfter(true);
+		anim.setDuration(1000);
+		arrow.startAnimation(anim);
+		
+		temRotate = arrowRotateStartAngle;
+		arrowRotateStartAngle = arrowRotateXAngle;
+		arrowRotateXAngle = temRotate;
+	}
+	
 	private void showPopupWindow(View v){
 		ListView menus = null;
 		int windowWidth;
@@ -208,6 +228,8 @@ public class TradeList extends Activity implements OnScrollListener{
 		int popupWindowHeight;
 		int xPos = 0;
 		final List<String> groups = new ArrayList<String>();
+		
+		rotateArrow();
 		
 		WindowManager window = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
 		windowWidth = window.getDefaultDisplay().getWidth();
@@ -224,6 +246,12 @@ public class TradeList extends Activity implements OnScrollListener{
 			GroupAdapter adapter = new GroupAdapter(this, groups);
 			menus.setAdapter(adapter);
 			popupWindow = new PopupWindow(view, popupWindowWidth,popupWindowHeight);
+			PopupWindow.OnDismissListener listener = new PopupWindow.OnDismissListener(){
+				@Override
+				public void onDismiss() {
+					rotateArrow();
+				}};
+			popupWindow.setOnDismissListener(listener);
 			popupWindow.setHeight(LayoutParams.WRAP_CONTENT);
 		}
 		popupWindow.setFocusable(true);
