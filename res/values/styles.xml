@@ -181,5 +181,14 @@
         <item name="android:padding">16dp</item>
         <item name="android:background">@drawable/border_bottom_bg</item>
     </style>
+    <style name="dataList_list_sort_key">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingTop">9dp</item>
+        <item name="android:paddingBottom">9dp</item>
+        <item name="android:background">@drawable/sort_key_bg</item>
+    </style>
 
 </resources>

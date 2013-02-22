@@ -117,6 +117,9 @@ public class Logining extends Activity {
 				switch(e.getAction()){
 				case MotionEvent.ACTION_DOWN:
 					moneyIcon.setBackgroundResource(R.drawable.icon_money_selected);
+					Intent intent = new Intent();
+					intent.setClass(Logining.this, TransferSelectContacter.class);
+					startActivity(intent);
 					break;
 				case MotionEvent.ACTION_UP:
 					moneyIcon.setBackgroundResource(R.drawable.icon_money_default);
