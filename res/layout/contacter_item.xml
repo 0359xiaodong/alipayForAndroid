@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/type"
+            style="@style/dataList_list_sort_key"
+            android:text="B"
+            android:textColor="#999"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            style="@style/dataList_list" >
+            <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="41dp"
+            android:textColor="#666"
+            android:textSize="16sp"
+            android:text="巴秀琳" />
+        
+        <TextView
+            android:id="@+id/number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ccc"
+            android:textSize="12sp"
+            android:text="138 1149 5117" />
+        </LinearLayout>
+
+        
+
+    </LinearLayout>
