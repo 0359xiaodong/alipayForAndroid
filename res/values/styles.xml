@@ -190,5 +190,22 @@
         <item name="android:paddingBottom">9dp</item>
         <item name="android:background">@drawable/sort_key_bg</item>
     </style>
+    
+    <!-- overlay样式 -->
+    <style name="overlay">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#fff</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/overlay_bg_default</item>
+        <item name="android:paddingTop">9dp</item>
+        <item name="android:paddingBottom">9dp</item>
+        <item name="android:paddingLeft">27dp</item>
+        <item name="android:paddingRight">27dp</item>
+        <item name="android:textSize">40sp</item>
+        <item name="android:shadowColor">#000</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+    </style>
 
 </resources>

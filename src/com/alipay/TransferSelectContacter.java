@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
@@ -16,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.BaseAdapter;
@@ -32,6 +34,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.PixelFormat;
 
 public class TransferSelectContacter extends Activity {
 	private static final String TAG = "Alipay";
@@ -41,6 +44,9 @@ public class TransferSelectContacter extends Activity {
 	private ContacterAsyncQueryHandler asyncQueryHandler;
 	private HashMap<String, Integer> alphaIndexer;
 	private String[] sections;
+	private OverlayThread overlayThread;
+	private TextView overlay;
+	private Handler handler;
 	
 	private static final String NAME = "name", NUMBER = "number", SORT_KEY = "sort_key";
 	
@@ -51,10 +57,15 @@ public class TransferSelectContacter extends Activity {
 		setContentView(R.layout.transfer_select_contacter);
 		
 		lv = (ListView) findViewById(R.id.dataList);
-		
-		asyncQueryHandler = new ContacterAsyncQueryHandler(this.getContentResolver());
 		letterLV = (LetterListView) findViewById(R.id.letter_list);
 		letterLV.setOnTouchingLetterChangedListener(new LetterListViewListener());
+		
+		
+		asyncQueryHandler = new ContacterAsyncQueryHandler(this.getContentResolver());
+		alphaIndexer = new HashMap<String, Integer>();
+		handler = new Handler();
+		overlayThread = new OverlayThread();
+		initOverlay();
 	}
 	@Override
 	protected void onResume(){
@@ -108,7 +119,6 @@ public class TransferSelectContacter extends Activity {
 		public ListAdapter(Context c, List<ContentValues> list){
 			inflater = LayoutInflater.from(c);
 			this.list = list;
-			alphaIndexer = new HashMap<String, Integer>();
 			sections = new String[list.size()];
 			for(int i = 0; i < list.size(); i++){
 				String currentStr = getAlpha(list.get(i).getAsString(SORT_KEY));
@@ -195,8 +205,33 @@ public class TransferSelectContacter extends Activity {
 			if(map != null){
 				int position = alphaIndexer.get(s);
 				lv.setSelection(position);
-				Log.d(TAG, s);
+				overlay.setText(sections[position]);
+				overlay.setVisibility(View.VISIBLE);
+				handler.removeCallbacks(overlayThread); 
+				handler.postDelayed(overlayThread, 1500);
 			}
 		}
+	}
+	
+	private class OverlayThread implements Runnable{
+		@Override
+		public void run() {
+			overlay.setVisibility(View.GONE);
+		}
+	}
+	
+	private void initOverlay(){
+		LayoutInflater inflater = LayoutInflater.from(this);
+		overlay = (TextView) inflater.inflate(R.layout.data_list_overlay, null);
+		overlay.setVisibility(View.INVISIBLE);
+		WindowManager.LayoutParams lp = new WindowManager.LayoutParams(
+				LayoutParams.WRAP_CONTENT,
+				LayoutParams.WRAP_CONTENT,
+				WindowManager.LayoutParams.TYPE_APPLICATION,
+				WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+				PixelFormat.TRANSLUCENT
+				);
+		WindowManager windowManager = (WindowManager) this.getSystemService(Context.WINDOW_SERVICE);
+		windowManager.addView(overlay, lp);
 	}
 }
