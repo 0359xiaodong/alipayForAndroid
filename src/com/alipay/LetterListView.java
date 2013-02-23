@@ -36,6 +36,7 @@ public class LetterListView extends View{
 	@Override 
 	protected void onDraw(Canvas canvas){
 		super.onDraw(canvas);
+		//canvas.
 		if(showBkg){
 			canvas.drawColor(Color.parseColor("#40000000"));
 		}

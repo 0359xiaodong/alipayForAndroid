@@ -53,7 +53,9 @@
 
 <com.alipay.LetterListView
     android:id="@+id/letter_list"
-    android:layout_width="wrap_content"
+    android:layout_width="20dp"
+    android:layout_alignParentRight="true"
+    android:gravity="center"
     android:layout_height="match_parent"
     android:orientation="vertical" />
 
